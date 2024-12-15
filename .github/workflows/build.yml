@@ -25,7 +25,7 @@ jobs:
         path: ../${{env.NGINX_VERSION}}
     - name: configure (build as a dynamic module)
       working-directory: ../${{env.NGINX_VERSION}}
-      run: ./configure --with-compat --add-dynamic-module=../brutal-nginx
+      run: ./auto/configure --with-compat --add-dynamic-module=../brutal-nginx
     - name: make
       working-directory: ../${{env.NGINX_VERSION}}
       run: make
