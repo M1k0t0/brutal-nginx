@@ -23,6 +23,7 @@ jobs:
       uses: sudosubin/git-clone-action@v1.0.1
       with:
         repository: nginx/nginx
+        path: ../${{env.NGINX_VERSION}}
     - name: configure (build as a dynamic module)
       working-directory: ../${{env.NGINX_VERSION}}
       run: ./configure --with-compat --add-dynamic-module=../brutal-nginx
