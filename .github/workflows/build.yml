@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      #NGINX_VERSION: nginx-1.27.4
-      NGINX_VERSION: nginx
+      NGINX_VERSION: nginx-1.27.4
 
     steps:
     - uses: actions/checkout@v3
