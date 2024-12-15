@@ -8,21 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NGINX_VERSION: nginx-1.27.4
+      NGINX_VERSION: nginx-1.27.3
 
     steps:
     - uses: actions/checkout@v3
-    #- name: download nginx
-      #working-directory: ../
-      #run: wget https://nginx.org/download/${{env.NGINX_VERSION}}.tar.gz
-    #- name: uncompress nginx
-      #working-directory: ../
-      #run: tar zxvf ${{env.NGINX_VERSION}}.tar.gz
-    - name: Git Clone Action
-      uses: sudosubin/git-clone-action@v1.0.1
-      with:
-        repository: nginx/nginx
-        path: ../${{env.NGINX_VERSION}}
+    - name: download nginx
+      working-directory: ../
+      run: wget https://nginx.org/download/${{env.NGINX_VERSION}}.tar.gz
+    - name: uncompress nginx
+      working-directory: ../
+      run: tar zxvf ${{env.NGINX_VERSION}}.tar.gz
+    #- name: Git Clone Action
+      #uses: sudosubin/git-clone-action@v1.0.1
+      #with:
+        #repository: nginx/nginx
+        #path: ../${{env.NGINX_VERSION}}
     - name: configure (build as a dynamic module)
       working-directory: ../${{env.NGINX_VERSION}}
       run: ./auto/configure --with-compat --add-dynamic-module=../brutal-nginx
